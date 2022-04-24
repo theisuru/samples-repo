@@ -1,2 +1,2 @@
 # samples-repo
-BioSamples client repository for demonstratingpair programming and TDD
+BioSamples client repository for demonstrating pair programming and TDD
