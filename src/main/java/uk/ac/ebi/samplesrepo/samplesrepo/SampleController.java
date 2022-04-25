@@ -16,7 +16,7 @@ public class SampleController {
     }
 
     @GetMapping("/samples/{accessionId}")
-    ResponseEntity<?> retrieveSampleByAccessionId(@PathVariable("accessionId") String accessionId) {
+    ResponseEntity<Sample> retrieveSampleByAccessionId(@PathVariable("accessionId") String accessionId) {
         Sample sample = sampleRepository.findByAccession(accessionId);
 
         if (sample == null)
