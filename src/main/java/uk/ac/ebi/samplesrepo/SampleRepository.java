@@ -1,4 +1,4 @@
-package uk.ac.ebi.samplesrepo.samplesrepo;
+package uk.ac.ebi.samplesrepo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

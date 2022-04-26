@@ -1,4 +1,4 @@
-package uk.ac.ebi.samplesrepo.samplesrepo;
+package uk.ac.ebi.samplesrepo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

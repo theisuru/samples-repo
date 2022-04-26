@@ -1,4 +1,4 @@
-package uk.ac.ebi.samplesrepo.samplesrepo;
+package uk.ac.ebi.samplesrepo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
