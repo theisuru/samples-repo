@@ -1,9 +1,8 @@
 package uk.ac.ebi.samplesrepo;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -17,7 +16,7 @@ public class SampleStoreController {
         this.sampleRepository = sampleRepository;
     }
 
-    @PostMapping("/sample")
+    @PostMapping("/samples")
     public ResponseEntity<Sample> saveSample(@RequestBody Sample sample) {
         Sample storedSample = sampleRepository.save(sample);
 
@@ -28,5 +27,21 @@ public class SampleStoreController {
                 .toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @GetMapping("/samples/{accessionId}")
+    public ResponseEntity<Sample> retrieveSampleByAccessionId(@PathVariable("accessionId") String accessionId) {
+        Sample sample = sampleRepository.findByAccession(accessionId);
+
+        if (sample == null) {
+            return ResponseEntity
+                    .notFound()
+                    .build();
+        }
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(sample);
     }
 }
